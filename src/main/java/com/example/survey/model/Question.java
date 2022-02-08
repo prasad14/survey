@@ -1,17 +1,23 @@
 package com.example.survey.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "QUESTION")
 public class Question {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String questionType;
+
     private String question;
 
+    @OneToMany(targetEntity = Options.class, fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Options> optionsList;
 
     public Long getId() {
         return id;
@@ -37,6 +43,13 @@ public class Question {
         this.question = question;
     }
 
+    public List<Options> getOptionsList() {
+        return optionsList;
+    }
+
+    public void setOptionsList(List<Options> optionsList) {
+        this.optionsList = optionsList;
+    }
 
 }
 
