@@ -7,6 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface AnswerRepository extends CrudRepository<Answer, AnswerId> {
 
-    @Query("SELECT a FROM Answer a WHERE a.surveyId = ?1 and a.questionId = ?2")
+    @Query("SELECT a FROM Answer a WHERE a.answerId.surveyId = ?1 and a.answerId.questionId = ?2")
     Iterable<Answer> findAnswersBySurveyIdAndQuestionId(Long surveyId, Long questionId);
 }

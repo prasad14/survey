@@ -1,9 +1,9 @@
 package com.example.survey.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "OPTIONS")
 public class Options {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)

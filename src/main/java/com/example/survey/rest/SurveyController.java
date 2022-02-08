@@ -102,7 +102,7 @@ public class SurveyController {
         return ResponseEntity.status(HttpStatus.OK).body(answer);
     }
 
-    @PutMapping("/users/{userId}/surveys/{surveyId}/questions/{questionId}/answer")
+    @PostMapping("/users/{userId}/surveys/{surveyId}/questions/{questionId}/answer")
     public ResponseEntity<Answer> addAnswerForAUser(@PathVariable("surveyId") Long surveyId,
                                                     @PathVariable("questionId") Long questionId,
                                                     @PathVariable("userId") Long userId,
